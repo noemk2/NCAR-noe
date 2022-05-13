@@ -78,6 +78,28 @@ near call productos.mue.testnet delete_products '{"address": "noemk3.testnet"}' 
 
 ## USO DEL migrate
 
+### requisitos:
+- contrato ya desplegado 
+- creacion de una DAO en https://testnet-v2.sputnik.fund/#/ 
+- instalar sputnikdao https://www.npmjs.com/package/sputnikdao
+
+
+### ir al merge migrated
+
+```sh
+	git checkout migrated 
+```
+### build contract
+```sh
+    sh build.sh
+```
+### create proposal para la dao (upgrade)
+$ID no debe ser owner_id del contrato
+
+```sh
+	sputnikdao proposal upgrade res/products.wasm productos.mue.testnet --daoAcc nienie --accountId $ID.testnet
+```
+
 ![Screenshot 2022-05-13 at 12-25-15 SputnikDAO 2](https://user-images.githubusercontent.com/37389982/168336233-4ba0f85d-8491-4980-ac1f-c92bec0dff97.png)
 
 
