@@ -1,6 +1,3 @@
-// use std::borrow::Borrow;
-
-// use std::collections::HashMap;
 use near_sdk::borsh::{self, BorshDeserialize, BorshSerialize};
 // use near_sdk::collections::{LazyOption, LookupMap, UnorderedMap, UnorderedSet};
 use near_sdk::collections::LookupMap;
@@ -14,7 +11,6 @@ use near_sdk::{
 };
 
 pub const TGAS: u64 = 10_000_000_000_000;
-
 const XCC_GAS: Gas = Gas(10_000_000_000_000);
 
 #[ext_contract(ext_calculator)]
@@ -23,18 +19,6 @@ trait Calculator {
     fn sum(&self, a: u128, b: u128) -> u128;
 }
 
-// #[ext_contract(ext_self)]
-// pub trait ExtSelf {
-//     fn callback_promise_result() -> bool;
-//     // fn callback_arg_macro(#[callback] val: bool) -> bool;
-// }
-
-#[derive(BorshDeserialize, BorshSerialize)]
-pub struct OldStatusMessage {
-    pub owner_id: AccountId,
-    pub records: LookupMap<String, Item>,
-    pub last_update_time: u64,
-}
 
 #[derive(Serialize, Deserialize, BorshDeserialize, BorshSerialize, Clone)]
 #[serde(crate = "near_sdk::serde")]
@@ -54,15 +38,7 @@ pub struct Contract {
     pub records: LookupMap<String, Item>,
 }
 
-impl From<Contract> for OldStatusMessage {
-    fn from(contract: Contract) -> Self {
-        Self {
-            owner_id: contract.owner_id,
-            records: contract.records,
-            last_update_time: 0,
-        }
-    }
-}
+
 
 #[near_bindgen]
 impl Contract {
@@ -197,34 +173,16 @@ impl Contract {
         }
     }
 
+
     //callback
-    // pub fn xcc_use_promise_result(&mut self) -> Promise {
-
-    //         ext_self::callback_promise_result(
-    //             env::current_account_id(),
-    //             0,
-    //             XCC_GAS,
-    //     )
-    // }
-
     pub fn sum_a_b(&mut self, a: u128, b: u128) -> Promise {
-        // let calculator_account_id: AccountId = "calc.testnet".parse().unwrap();
-        // assert!("invalid.".parse::<AccountId>().is_err());
+        let calculator_account_id: AccountId = "calc.noemk3.testnet".parse().unwrap();
+        assert!("invalid.".parse::<AccountId>().is_err());
         // let calculator_account_id: AccountId = AccountId::from("calculator");
-        ext_calculator::sum(a, b, env::current_account_id(), 0, XCC_GAS)
+        ext_calculator::sum(a, b, calculator_account_id, 0, XCC_GAS)
         // ext_calculator::sum(a, b )
     }
 
-    /*
-       #[private]
-    #[init(ignore_state)]
-    pub fn migrate() -> Self {
-        let old_state: OldStatusMessage = env::state_read().expect("failed");
-        Self {
-            taglines: old_state.records,
-            bios: LookupMap::new(b"b".to_vec()),
-        }
-    }
-
-        */
 }
+
+
