@@ -19,7 +19,6 @@ trait Calculator {
     fn sum(&self, a: u128, b: u128) -> u128;
 }
 
-
 #[derive(Serialize, Deserialize, BorshDeserialize, BorshSerialize, Clone)]
 #[serde(crate = "near_sdk::serde")]
 pub struct Item {
