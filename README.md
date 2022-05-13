@@ -36,11 +36,11 @@ Este curso es una oportunidad para que los desarrolladores dentro del ecosistema
 
 ID= productos.mue.testnet
 <br>
-echo $ID
+
 
 ## Inicializar contrato:
 ```rust
-	near call $ID init_contract '{"owner_id":"'$ID'"}' --accountId $ID
+    near call productos.mue.testnet new '{"owner_id": "mue.testnet"}' --accountId $YOUR_ACCOUNT.testnet
 ```
 
 ## Obtener producto
@@ -53,15 +53,20 @@ echo $ID
 ## Guardar producto
 
 ```rust
-    near call $ID set_products '{"address":"0x1", "name":"zapatos", "price": 250, "stock":5, "cid": ""}' --accountId yairnava.testnet
-    near call $ID set_products '{"address":"0x2", "name":"botas", "price": 450, "stock":10, "cid": ""}' --accountId yairnava.testnet
-    near call $ID set_products '{"address":"0x3", "name":"tenis", "price": 300, "stock":7, "cid": ""}' --accountId yairnava.testnet
+  near call productos.mue.testnet set_products '{"address": "noemk3.testnet", "name": "phone 5", "price": 520, "stock": 50,"cid": "QmUWe3CW6NoFimZ34xWCKdzrveCD5zqExTAUeFzJ6nbDYp" }' --accountId mue.testnet
+
+
+near call productos.mue.testnet set_products '{"address": "mue.testnet", "name": "phone 1", "price": 10, "stock": 10,"cid": "Qmb7VQPf7KFnXSQed5LWWQoCzmqvsQQoaEjd98wGweppvE" }' --accountId mue.testnet
+
+
+near call productos.mue.testnet set_products '{"address": "nie.testnet", "name": "phone 4", "price": 40, "stock": 40,"cid": "Qmb7VQPf7KFnXSQed5LWWQoCzmqvsQQoaEjd98wGweppvE" }' --accountId mue.testnet
+
 ```
 
 ## Eliminar producto
 
 ```rust
-    near call $ID delete_products '{"address":"0x3"}' --accountId yairnava.testnet
+near call productos.mue.testnet delete_products '{"address": "noemk3.testnet"}' --accountId mue.testnet
 ```
 
 
