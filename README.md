@@ -71,7 +71,11 @@ near call productos.mue.testnet delete_products '{"address": "noemk3.testnet"}' 
 
 ## Uso del Callback (bajo nivel)
 
+```sh
 
+near call productos.mue.testnet sum_a_b '{"a": 12, "b": 12}' --accountId mue.testnet
+
+```
 
 
 ## USO DEL NODO thegraph:
