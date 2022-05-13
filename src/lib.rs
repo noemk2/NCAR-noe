@@ -5,6 +5,7 @@ use near_sdk::borsh::{self, BorshDeserialize, BorshSerialize};
 // use near_sdk::collections::{LazyOption, LookupMap, UnorderedMap, UnorderedSet};
 use near_sdk::collections::LookupMap;
 use near_sdk::env::log_str;
+use near_sdk::ext_contract;
 // use near_sdk::json_types::{Base64VecU8, U128};
 use near_sdk::serde::{Deserialize, Serialize};
 use near_sdk::{
@@ -14,7 +15,19 @@ use near_sdk::{
 
 pub const TGAS: u64 = 10_000_000_000_000;
 
-// use near_sdk::{bindgen, AccountId, PanicOnDefault};
+const XCC_GAS: Gas = Gas(10_000_000_000_000);
+
+#[ext_contract(ext_calculator)]
+trait Calculator {
+    fn mult(&self, a: u64, b: u64) -> u128;
+    fn sum(&self, a: u128, b: u128) -> u128;
+}
+
+// #[ext_contract(ext_self)]
+// pub trait ExtSelf {
+//     fn callback_promise_result() -> bool;
+//     // fn callback_arg_macro(#[callback] val: bool) -> bool;
+// }
 
 #[derive(BorshDeserialize, BorshSerialize)]
 pub struct OldStatusMessage {
@@ -183,6 +196,25 @@ impl Contract {
             );
         }
     }
+
+    //callback
+    // pub fn xcc_use_promise_result(&mut self) -> Promise {
+
+    //         ext_self::callback_promise_result(
+    //             env::current_account_id(),
+    //             0,
+    //             XCC_GAS,
+    //     )
+    // }
+
+    pub fn sum_a_b(&mut self, a: u128, b: u128) -> Promise {
+        // let calculator_account_id: AccountId = "calc.testnet".parse().unwrap();
+        // assert!("invalid.".parse::<AccountId>().is_err());
+        // let calculator_account_id: AccountId = AccountId::from("calculator");
+        ext_calculator::sum(a, b, env::current_account_id(), 0, XCC_GAS)
+        // ext_calculator::sum(a, b )
+    }
+
     /*
        #[private]
     #[init(ignore_state)]
