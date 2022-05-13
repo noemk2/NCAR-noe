@@ -67,6 +67,7 @@ echo $ID
 
 ## USO DEL NODO thegraph:
 
+![Screenshot 2022-05-13 at 12-19-59 Simi Subgraph](https://user-images.githubusercontent.com/37389982/168335902-3319c71d-90cb-4b23-9e57-bd54caa40253.png)
 
 
 
