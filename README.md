@@ -69,7 +69,7 @@ near call productos.mue.testnet set_products '{"address": "nie.testnet", "name":
 near call productos.mue.testnet delete_products '{"address": "noemk3.testnet"}' --accountId mue.testnet
 ```
 
-## Uso del Callback (bajo nivel)
+## Uso del Cross Contract Callback (bajo nivel)
 
 ```sh
 
@@ -112,7 +112,7 @@ ir a https://thegraph.com/hosted-service/subgraph/noemk2/simi
 - instalar sputnikdao https://www.npmjs.com/package/sputnikdao
 
 
-### ir al merge migrated
+### ir al rama migrated
 
 ```sh
 	git checkout migrated 
@@ -122,7 +122,7 @@ ir a https://thegraph.com/hosted-service/subgraph/noemk2/simi
     sh build.sh
 ```
 ### create proposal para la dao (upgrade)
-$ID no debe ser owner_id del contrato
+$ID No debe ser owner_id del contrato
 
 ```sh
 	sputnikdao proposal upgrade res/products.wasm productos.mue.testnet --daoAcc nienie --accountId $ID.testnet
