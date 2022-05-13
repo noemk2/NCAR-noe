@@ -177,6 +177,7 @@ impl Contract {
     //callback
     pub fn sum_a_b(&mut self, a: u128, b: u128) -> Promise {
         let calculator_account_id: AccountId = "calc.noemk3.testnet".parse().unwrap();
+
         assert!("invalid.".parse::<AccountId>().is_err());
         // let calculator_account_id: AccountId = AccountId::from("calculator");
         ext_calculator::sum(a, b, calculator_account_id, 0, XCC_GAS)

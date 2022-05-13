@@ -39,12 +39,12 @@ ID= productos.mue.testnet
 
 
 ## Inicializar contrato:
-```rust
+```sh
     near call productos.mue.testnet new '{"owner_id": "mue.testnet"}' --accountId $YOUR_ACCOUNT.testnet
 ```
 
 ## Obtener producto
-```rust
+```sh
     near view productos.mue.testnet get_products '{"address":"noemk3.testnet"}'
     near view productos.mue.testnet get_products '{"address":"nie.testnet"}'
     near view productos.mue.testnet  get_products '{"address":"mue.testnet"}'
@@ -52,7 +52,7 @@ ID= productos.mue.testnet
 
 ## Guardar producto
 
-```rust
+```sh
   near call productos.mue.testnet set_products '{"address": "noemk3.testnet", "name": "phone 5", "price": 520, "stock": 50,"cid": "QmUWe3CW6NoFimZ34xWCKdzrveCD5zqExTAUeFzJ6nbDYp" }' --accountId mue.testnet
 
 
@@ -65,9 +65,13 @@ near call productos.mue.testnet set_products '{"address": "nie.testnet", "name":
 
 ## Eliminar producto
 
-```rust
+```sh
 near call productos.mue.testnet delete_products '{"address": "noemk3.testnet"}' --accountId mue.testnet
 ```
+
+## Uso del Callback (bajo nivel)
+
+
 
 
 ## USO DEL NODO thegraph:
