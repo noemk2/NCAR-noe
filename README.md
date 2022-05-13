@@ -12,7 +12,7 @@ Este curso es una oportunidad para que los desarrolladores dentro del ecosistema
 - Día 5: DEMO DAY
 
 
-## Actividades realizadas por noemk2:
+## 👨‍💻  Actividades realizadas por noemk2:
 
 ## Contratos utilizado en este demo (testnet):
 - calc.noemk3.testnet (contrato para el cross-contract-callback)
