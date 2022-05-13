@@ -35,6 +35,7 @@ Este curso es una oportunidad para que los desarrolladores dentro del ecosistema
 # USO DEL CONTRATO productos.mue.testnet:
 
 ID= productos.mue.testnet
+<br>
 echo $ID
 
 ## Inicializar contrato:
