@@ -80,6 +80,26 @@ near call productos.mue.testnet sum_a_b '{"a": 12, "b": 12}' --accountId mue.tes
 
 ## USO DEL NODO thegraph:
 
+## ver las entidades registradas:
+ir a https://thegraph.com/hosted-service/subgraph/noemk2/simi
+
+## consultar entidades
+
+```
+{
+  products(first: 5) {
+    id
+    name
+    price
+    stock
+    cid
+    enabled
+  }
+}
+
+```
+
+
 ![Screenshot 2022-05-13 at 12-19-59 Simi Subgraph](https://user-images.githubusercontent.com/37389982/168335902-3319c71d-90cb-4b23-9e57-bd54caa40253.png)
 
 
