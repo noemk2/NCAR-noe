@@ -73,5 +73,6 @@ echo $ID
 
 ## USO DEL migrate
 
+![Screenshot 2022-05-13 at 12-25-15 SputnikDAO 2](https://user-images.githubusercontent.com/37389982/168336233-4ba0f85d-8491-4980-ac1f-c92bec0dff97.png)
 
 
