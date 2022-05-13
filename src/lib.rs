@@ -35,9 +35,14 @@ pub struct Item {
 pub struct Contract {
     pub owner_id: AccountId,
     pub records: LookupMap<String, Item>,
+    pub number_phone: String,
 }
 
-
+#[derive(BorshDeserialize, BorshSerialize, PanicOnDefault)]
+pub struct OdlContract {
+    pub owner_id: AccountId,
+    pub records: LookupMap<String, Item>,
+}
 
 #[near_bindgen]
 impl Contract {
@@ -51,8 +56,9 @@ impl Contract {
     pub fn new(owner_id: AccountId) -> Self {
         //create a variable of type Self with all the fields initialized.
         let this = Self {
-            owner_id,
+            owner_id: owner_id,
             records: LookupMap::new(b"a".to_vec()),
+            number_phone: "".to_string(),
         };
         //return the Contract object
         this
@@ -172,7 +178,6 @@ impl Contract {
         }
     }
 
-
     //callback
     pub fn sum_a_b(&mut self, a: u128, b: u128) -> Promise {
         let calculator_account_id: AccountId = "calc.noemk3.testnet".parse().unwrap();
@@ -182,6 +187,18 @@ impl Contract {
         // ext_calculator::sum(a, b )
     }
 
+    #[private]
+    #[init(ignore_state)]
+    pub fn migrate() -> Self {
+        log!("\nmigrate: migrating contract state to v2: [verifications], [assignments], [validators]");
+        let old_state: OdlContract = env::state_read().expect("failed");
+        Self {
+            // this props must be preserved
+            owner_id: old_state.owner_id,
+            records: old_state.records,
+
+            // now initialize the new 'cards' map
+            number_phone: String::from(""),
+        }
+    }
 }
-
-
