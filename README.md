@@ -45,9 +45,9 @@ ID= productos.mue.testnet
 
 ## Obtener producto
 ```rust
-    near view $ID get_products '{"address":"0x1"}'
-    near view $ID get_products '{"address":"0x2"}'
-    near view $ID get_products '{"address":"0x3"}'
+    near view productos.mue.testnet get_products '{"address":"noemk3.testnet"}'
+    near view productos.mue.testnet get_products '{"address":"nie.testnet"}'
+    near view productos.mue.testnet  get_products '{"address":"mue.testnet"}'
 ```
 
 ## Guardar producto
