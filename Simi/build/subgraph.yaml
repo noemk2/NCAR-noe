@@ -1,18 +1,18 @@
 specVersion: 0.0.4
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: near
     name: Contract
     network: near-testnet
     source:
-      account: "productos.mue.testnet"
+      account: productos.mue.testnet
       startBlock: 89810951
     mapping:
       apiVersion: 0.0.6
       language: wasm/assemblyscript
       entities:
-        - Product 
+        - Product
       receiptHandlers:
         - handler: handleReceipt
-      file: ./src/contract.ts
+      file: Contract/Contract.wasm
