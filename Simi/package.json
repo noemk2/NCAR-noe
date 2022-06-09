@@ -1,0 +1,16 @@
+{
+  "name": "Simi",
+  "license": "UNLICENSED",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ noemk2/Simi",
+    "create-local": "graph create --node http://localhost:8020/ noemk2/Simi",
+    "remove-local": "graph remove --node http://localhost:8020/ noemk2/Simi",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 noemk2/Simi"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.30.4",
+    "@graphprotocol/graph-ts": "0.27.0"
+  }
+}
